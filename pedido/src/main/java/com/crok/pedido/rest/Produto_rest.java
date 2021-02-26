@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.crok.pedido.dao.Pedido_dao;
-import com.crok.pedido.entity.Pedido;
+import com.crok.pedido.dao.Produto_dao;
+import com.crok.pedido.entity.Produto;
 
 /**
  * 
@@ -22,27 +22,27 @@ import com.crok.pedido.entity.Pedido;
  *@Autowired=
  */
 @RestController
-@RequestMapping("/pedido")
-public class Pedido_rest {
+@RequestMapping("/produto")
+public class Produto_rest {
 
 	@Autowired
-	private Pedido_dao pedidoDao;
+	private Produto_dao produtoDao;
 
 	/**
 	 * @GetMapping = metodo get pega os objetos salvos e mostra pro usuário
 	 * @return
 	 */
 	@GetMapping
-	public List<Pedido> get(){
-		return pedidoDao.findAll();
+	public List<Produto> get(){
+		return produtoDao.findAll();
 	}
 	/**
 	 * @PostMapping = método post edita e salva o objeto no banco.
-	 * @param pedido
+	 * @param produto
 	 */
 	@PostMapping
-	public void post(@RequestBody Pedido pedido) {
-		pedidoDao.save(pedido);
+	public void post(@RequestBody Produto produto) {
+		produtoDao.save(produto);
 	}
 	/**
 	 * @DeleteMapping("/{id}")= metodo delete ("/{id do objeto}") = deleta na barra de procura com id do objeto no lugar do nome da pagina
@@ -51,7 +51,7 @@ public class Pedido_rest {
 	 */
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable("id") Long id) {
-		pedidoDao.deleteById(id);
+		produtoDao.deleteById(id);
 	}
 	
 	
