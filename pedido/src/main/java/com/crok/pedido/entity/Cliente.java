@@ -1,5 +1,6 @@
 package com.crok.pedido.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +22,11 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	/**
+	 * @Column = comando referente a colunas no banco
+	 * (nullable = false) = campo na coluna nao pode ser null
+	 */
+	@Column(nullable = false)
 	private String nome;
 	
 	
